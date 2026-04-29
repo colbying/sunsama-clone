@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunsama Clone</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">☀</div>
+      <div>
+        <div class="brand-name">Daily</div>
+        <div class="brand-sub">plan your day</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item" data-view="today">Today</button>
+      <button class="nav-item" data-view="week">This Week</button>
+      <button class="nav-item" data-view="backlog">Backlog</button>
+    </nav>
+
+    <div class="section-head">
+      <span>Channels</span>
+      <button id="add-channel-btn" title="Add channel">+</button>
+    </div>
+    <ul id="channels" class="channels"></ul>
+
+    <div class="footer">
+      <button id="rollover-btn" title="Move incomplete tasks from yesterday to today">↻ Rollover yesterday</button>
+      <div id="user-chip" class="user-chip" style="margin-top:10px;">
+        <img id="u-pic" alt="" />
+        <div class="who">
+          <div id="u-name" class="name"></div>
+          <div id="u-email" class="email"></div>
+        </div>
+        <button id="logout-btn" title="Sign out">↪</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="date-nav">
+        <button id="prev-day">‹</button>
+        <h1 id="date-title">Today</h1>
+        <button id="next-day">›</button>
+        <button id="today-btn" class="ghost">Today</button>
+      </div>
+      <div class="day-stats" id="day-stats"></div>
+    </header>
+
+    <section id="day-view" class="view active">
+      <form id="quick-add" class="quick-add">
+        <input id="qa-title" placeholder="What do you want to get done?" autocomplete="off" />
+        <select id="qa-channel"></select>
+        <input id="qa-mins" type="number" min="0" step="5" placeholder="min" />
+        <button type="submit">Add</button>
+      </form>
+      <ul id="task-list" class="task-list"></ul>
+      <div id="empty" class="empty">No tasks yet — plan your day above.</div>
+    </section>
+
+    <section id="week-view" class="view">
+      <div id="week-grid" class="week-grid"></div>
+    </section>
+
+    <section id="backlog-view" class="view">
+      <form id="backlog-add" class="quick-add">
+        <input id="bl-title" placeholder="Add to backlog…" autocomplete="off" />
+        <select id="bl-channel"></select>
+        <button type="submit">Add</button>
+      </form>
+      <ul id="backlog-list" class="task-list"></ul>
+    </section>
+  </main>
+
+  <div id="task-modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <input id="m-title" />
+        <button id="m-close">✕</button>
+      </div>
+      <div class="modal-row">
+        <label>Channel</label>
+        <select id="m-channel"></select>
+      </div>
+      <div class="modal-row">
+        <label>Date</label>
+        <input id="m-date" type="date" />
+        <button id="m-clear-date" class="ghost">backlog</button>
+      </div>
+      <div class="modal-row">
+        <label>Estimate (min)</label>
+        <input id="m-estimate" type="number" min="0" step="5" />
+      </div>
+      <div class="modal-row">
+        <label>Actual (min)</label>
+        <input id="m-actual" type="number" min="0" step="5" />
+      </div>
+      <div class="modal-row col">
+        <label>Notes</label>
+        <textarea id="m-notes" rows="4"></textarea>
+      </div>
+      <div class="modal-row col">
+        <label>Subtasks</label>
+        <ul id="m-subtasks" class="subtasks"></ul>
+        <form id="m-add-sub"><input id="m-sub-input" placeholder="Add subtask…" /></form>
+      </div>
+      <div class="modal-foot">
+        <button id="m-delete" class="danger">Delete</button>
+        <button id="m-save" class="primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
