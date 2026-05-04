@@ -156,6 +156,17 @@ input, textarea {
   gap: 8px;
 }
 
+.sidebar .brand .v2-badge {
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--accent);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  margin-left: 2px;
+}
+
 .sidebar .brand .dot {
   width: 18px;
   height: 18px;

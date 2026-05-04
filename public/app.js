@@ -145,7 +145,7 @@
     root.innerHTML = `
       <div class="app-shell">
         <aside class="sidebar">
-          <div class="brand"><span class="dot"></span> Sunsama Clone</div>
+          <div class="brand"><span class="dot"></span> Sunsama Clone <span class="v2-badge">v2</span></div>
 
           <div class="nav-item ${state.date === todayISO() ? 'active' : ''}" data-date="${todayISO()}">
             <span>Today</span>
